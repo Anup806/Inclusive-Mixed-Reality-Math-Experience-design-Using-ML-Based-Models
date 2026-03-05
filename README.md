@@ -73,15 +73,15 @@ This project addresses these gaps by building an inclusive, gesture-driven mixed
 
 ## Features
 
-- 🖐 **Real-time hand gesture detection** — pinch to grab apples, release over basket to answer
-- 🎯 **Two game modes** — Counting (place N apples in basket) and Addition (solve A+B by placing apples)
-- 🧠 **Adaptive difficulty** — BKT updates `p_know` after every answer; K-Means model classifies level
-- 📊 **Session 1 Assessment** — 15 fixed questions to cold-start BKT before switching to adaptive mode
-- 💾 **Cross-session persistence** — student levels and `p_know` saved to `student_levels.json`
-- 🔊 **Audio feedback** — counting sounds (1–10), cheer on correct answers
-- 📁 **CSV analytics** — per-interaction and per-session CSV logs in `game_data/`
-- 🎨 **Fullscreen AR overlay** — live webcam feed rendered under the game canvas
-- ♿ **Accessibility-first design** — large UI elements, audio cues, color-contrast feedback
+- **Real-time hand gesture detection** — pinch to grab apples, release over basket to answer
+- **Two game modes** — Counting (place N apples in basket) and Addition (solve A+B by placing apples)
+- **Adaptive difficulty** — BKT updates `p_know` after every answer; K-Means model classifies level
+- **Session 1 Assessment** — 15 fixed questions to cold-start BKT before switching to adaptive mode
+- **Cross-session persistence** — student levels and `p_know` saved to `student_levels.json`
+- **Audio feedback** — counting sounds (1–10), cheer on correct answers
+- **CSV analytics** — per-interaction and per-session CSV logs in `game_data/`
+- **Fullscreen AR overlay** — live webcam feed rendered under the game canvas
+- **Accessibility-first design** — large UI elements, audio cues, color-contrast feedback
 
 ---
 
