@@ -2,6 +2,10 @@
 
 > An adaptive, accessible mathematics learning platform that combines gesture recognition, real-time computer vision, and Bayesian Knowledge Tracing to deliver personalized math education for every learner.
 
+[![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://www.python.org/downloads/)
+[![OpenCV](https://img.shields.io/badge/OpenCV-4.x-green.svg)](https://opencv.org/)
+[![MediaPipe](https://img.shields.io/badge/MediaPipe-0.10+-orange.svg)](https://mediapipe.dev/)
+
 ---
 
 ## Table of Contents
@@ -18,13 +22,13 @@
 - [Example Workflow](#example-workflow)
 - [Future Improvements](#future-improvements)
 - [Contribution Guidelines](#contribution-guidelines)
-- [License](#license)
+- [Acknowledgments](#acknowledgments)
 
 ---
 
 ## Overview
 
-This project is an **inclusive Mixed Reality (MR) educational application** designed to help high school students learn mathematics interactively. The system integrates:
+**Inclusive Mixed Reality Math Experience Design Using ML-Based Models** is an innovative educational application that revolutionizes mathematics learning through mixed reality interaction. The system integrates:
 
 - **ML-based gesture recognition** via MediaPipe to detect hand poses and pinch gestures in real time
 - **Bayesian Knowledge Tracing (BKT)** to model each student's mastery level and dynamically adapt question difficulty
@@ -32,7 +36,9 @@ This project is an **inclusive Mixed Reality (MR) educational application** desi
 - **Audio feedback** with counting sounds and result announcements to support diverse learners
 - **Session analytics** logged to CSV for further research and model improvement
 
-Two gameplay modes are provided:
+This project demonstrates how machine learning models can create inclusive, adaptive learning experiences that respond to individual student needs in real time.
+
+### Two Gameplay Modes
 
 | Mode | Description |
 |------|-------------|
@@ -43,14 +49,14 @@ Two gameplay modes are provided:
 
 ## Problem Statement
 
-Traditional mathematics education tools often fail to accommodate diverse learner needs. Students who are blind, deaf, or have learning differences are frequently excluded from standard interactive software. Furthermore, most educational games offer fixed difficulty, ignoring a student's evolving mastery level and learning trajectory.
+Traditional mathematics education tools often fail to accommodate diverse learner needs. Students who are blind, deaf, or have learning differences are frequently excluded from standard interactive software. Additionally, most educational applications use a one-size-fits-all approach that doesn't adapt to individual learning pace or style.
 
-This project addresses these gaps by building an inclusive, gesture-driven MR math environment that:
+This project addresses these gaps by building an inclusive, gesture-driven mixed reality math environment that:
 
-1. Adapts problem difficulty in real time based on a student's demonstrated knowledge state
-2. Provides multimodal feedback (visual + audio) to serve multiple learner types
-3. Records and persists per-student learning data across sessions for longitudinal tracking
-4. Is accessible without specialised hardware — a standard webcam is sufficient
+1. **Adapts** problem difficulty in real time based on a student's demonstrated knowledge state
+2. **Provides** multimodal feedback (visual + audio) to serve multiple learner types
+3. **Records** and persists per-student learning data across sessions for longitudinal tracking
+4. **Accessible** without specialized hardware — a standard webcam is sufficient
 
 ---
 
@@ -75,7 +81,7 @@ This project addresses these gaps by building an inclusive, gesture-driven MR ma
 - 🔊 **Audio feedback** — counting sounds (1–10), cheer on correct answers
 - 📁 **CSV analytics** — per-interaction and per-session CSV logs in `game_data/`
 - 🎨 **Fullscreen AR overlay** — live webcam feed rendered under the game canvas
-- ♿ **Accessibility-first design** — large UI elements, audio cues, colour-contrast feedback
+- ♿ **Accessibility-first design** — large UI elements, audio cues, color-contrast feedback
 
 ---
 
@@ -127,7 +133,7 @@ This project addresses these gaps by building an inclusive, gesture-driven MR ma
 
 ### BKT Update Rule
 
-After each answer the engine applies the standard BKT Bayes update followed by a learning transition:
+After each answer, the engine applies the standard BKT Bayes update followed by a learning transition:
 
 ```
 P(know | evidence) = P(know) × P(evidence | know)
@@ -175,17 +181,14 @@ Default parameters:
 - A working **webcam**
 - OS: Windows 10/11, macOS 12+, or Ubuntu 20.04+
 
-### 1 — Clone the repository
+### Step 1: Clone the repository
 
 ```bash
 git clone https://github.com/Anup806/Inclusive-Mixed-Reality-Math-Experience-design-Using-ML-Based-Models.git
 cd Inclusive-Mixed-Reality-Math-Experience-design-Using-ML-Based-Models
-
-# Optional: rename the directory to a shorter path for convenience
-# cd .. && mv Inclusive-Mixed-Reality-Math-Experience-design-Using-ML-Based-Models inclusive-math-mr && cd inclusive-math-mr
 ```
 
-### 2 — Create and activate a virtual environment (recommended)
+### Step 2: Create and activate a virtual environment (recommended)
 
 ```bash
 python -m venv venv
@@ -197,7 +200,7 @@ venv\Scripts\activate
 source venv/bin/activate
 ```
 
-### 3 — Install dependencies
+### Step 3: Install dependencies
 
 ```bash
 pip install pygame opencv-python mediapipe numpy scikit-learn
@@ -209,7 +212,7 @@ To enable the optional Deep Knowledge Tracing (DKT) features:
 pip install tensorflow
 ```
 
-### 4 — Verify asset files
+### Step 4: Verify asset files
 
 Ensure the following files exist in the project root:
 
@@ -256,7 +259,7 @@ python "With Model.py"
 | Submit answer | Drag apple into basket zone — submission is automatic |
 | Exit game | Press **ESC** |
 
-### Analysing data
+### Analyzing data
 
 Open the Jupyter notebook to explore logged interactions and retrain the PC-BKT model:
 
@@ -269,10 +272,13 @@ jupyter notebook pc_bkt_after_realdata.ipynb
 ## Folder Structure
 
 ```
+Inclusive-Mixed-Reality-Math-Experience-design-Using-ML-Based-Models/
+│
 ├── With Model.py              # Adaptive game (BKT + PC-BKT K-Means)
 ├── Without Model.py           # Base game (gesture-only, no ML adaptation)
 ├── pc_bkt_after_realdata.ipynb# Notebook: PC-BKT model training & analysis
 ├── pc_bkt_model (1).pkl       # Pre-trained K-Means clustering model
+├── README.md                  # This file
 │
 ├── apple.png                  # Apple sprite asset
 ├── basket0.png … basket9.png  # Basket sprites (0–9 apples)
@@ -325,10 +331,10 @@ Alice,14,9,COUNTING,2025-12-26 10:20:54.932,3 apples,3,3,8.412,1,10,20251226_102
 - **Speech interaction** — integrate Vosk or Whisper for voice-command input, enabling fully hands-free gameplay for motor-impaired users
 - **Sign language recognition** — extend MediaPipe gesture vocabulary to recognize ASL/BSL number signs
 - **Unity / HoloLens port** — migrate the MR overlay to a full 3D Mixed Reality environment using Microsoft MRTK
-- **DKT (Deep Knowledge Tracing)** — replace the BKT engine with an LSTM-based DKT model for richer temporal modelling; TensorFlow hooks are already in place
-- **Teacher dashboard** — a web interface to visualise class-wide learning analytics from the CSV logs
+- **DKT (Deep Knowledge Tracing)** — replace the BKT engine with an LSTM-based DKT model for richer temporal modeling; TensorFlow hooks are already in place
+- **Teacher dashboard** — a web interface to visualize class-wide learning analytics from the CSV logs
 - **Automated model retraining** — scheduled pipeline to retrain the PC-BKT K-Means model as new interaction data accumulates
-- **Multilingual audio** — localised counting sounds and prompts
+- **Multilingual audio** — localized counting sounds and prompts
 - **Mobile / tablet support** — touch-gesture fallback when no webcam is available
 
 ---
@@ -360,10 +366,19 @@ Please open a GitHub Issue and include:
 
 ---
 
-## License
+## Acknowledgments
 
-This project is released under the [MIT License](LICENSE).
+This project was developed to advance inclusive education through mixed reality and machine learning. Special thanks to:
+
+- The **MediaPipe** team for providing robust hand tracking capabilities
+- The **Pygame** community for excellent documentation and support
+- Researchers in **Bayesian Knowledge Tracing** and adaptive learning systems
+- All contributors and users who help improve this platform
 
 ---
 
-*Built with ❤️ for inclusive education — because every student deserves to learn.*
+**Built with ❤️ for inclusive education — because every student deserves to learn.**
+
+---
+
+**Repository:** [Anup806/Inclusive-Mixed-Reality-Math-Experience-design-Using-ML-Based-Models](https://github.com/Anup806/Inclusive-Mixed-Reality-Math-Experience-design-Using-ML-Based-Models)
