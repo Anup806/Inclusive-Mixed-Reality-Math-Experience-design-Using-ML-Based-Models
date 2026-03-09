@@ -119,7 +119,7 @@ The system was designed to achieve the following technical and educational objec
 │           Gesture Recognition (MediaPipe Hands)              │
 │  • 21-landmark hand skeleton                                 │
 │  • Thumb-index pinch distance  →  grab / release event       │
-│  • Finger-tip (x, y) position  →  drag coordinates          │
+│  • Finger-tip (x, y) position  →  drag coordinates           │
 └───────────────┬─────────────────────────┬────────────────────┘
                 │                         │
                 ▼                         ▼
@@ -140,9 +140,9 @@ The system was designed to achieve the following technical and educational objec
                           ▼
 ┌──────────────────────────────────────────────────────────────┐
 │                  Persistence & Analytics                     │
-│  • student_levels.json  — per-student level & p_know        │
-│  • interactions.csv     — every Q&A event                   │
-│  • sessions.csv         — session-level summary             │
+│  • student_levels.json  — per-student level & p_know         │
+│  • interactions.csv     — every Q&A event                    │
+│  • sessions.csv         — session-level summary              │
 └──────────────────────────────────────────────────────────────┘
 ```
 
